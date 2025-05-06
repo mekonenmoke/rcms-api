@@ -1,14 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
 const rummersRouter = require('./routes/rumorsRoute');
 
 
 app.use(express.json());
-app.use('/api', rummersRouter);
+app.use('/api/rumors', rummersRouter);
 
 mongoose
-  .connect("mongodb://localhost:27017/sphi")
+  .connect("mongodb://localhost:27017/rumourDB")
   .then(() => console.log("database connected successfully"))
   .catch((err) => console.log(err));
 
